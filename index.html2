@@ -1,0 +1,95 @@
+from pathlib import Path
+html = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Official professional portfolio of Vamshi NM — MBA student, creator, trainer, public speaker and MBA Student Council President at SJCIT College, Chikkaballapur.">
+<meta name="author" content="Vamshi NM">
+<meta property="og:title" content="Vamshi NM | Creator • Trainer • MBA Student">
+<meta property="og:description" content="Official professional portfolio of Vamshi NM">
+<title>Vamshi NM | Creator • Trainer • MBA Student</title>
+<style>
+:root{--bg:#07090d;--card:#111722;--text:#f5f7fb;--muted:#9ba6b6;--line:#263141;--a:#6ee7ff;--b:#a78bfa;--max:1160px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:radial-gradient(circle at 10% 0%,#12303a,transparent 30%),radial-gradient(circle at 90% 10%,#241b42,transparent 30%),var(--bg);color:var(--text);line-height:1.6}a{color:inherit;text-decoration:none}.wrap{width:min(92%,var(--max));margin:auto}
+nav{position:sticky;top:0;z-index:10;background:#07090ddd;backdrop-filter:blur(15px);border-bottom:1px solid #ffffff12}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between}.logo{font-size:22px;font-weight:900}.logo span{color:var(--a)}.links{display:flex;gap:24px;color:var(--muted);font-weight:700;font-size:14px}.links a:hover{color:#fff}
+.hero{padding:100px 0 75px}.heroGrid{display:grid;grid-template-columns:1.2fr .8fr;gap:55px;align-items:center}.badge{display:inline-block;border:1px solid #334254;background:#0d131c;border-radius:99px;padding:7px 13px;font-size:12px;font-weight:900;color:#cbd5e1;margin-bottom:20px}.dot{display:inline-block;width:7px;height:7px;background:#61e7a3;border-radius:50%;margin-right:7px}
+h1{font-size:clamp(52px,8vw,88px);line-height:.95;letter-spacing:-.065em;margin-bottom:22px}.grad{background:linear-gradient(100deg,#fff,var(--a),var(--b));color:transparent;background-clip:text}.lead{font-size:19px;color:var(--muted);max-width:720px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{padding:12px 18px;border:1px solid var(--line);border-radius:12px;font-weight:800;font-size:14px}.primary{background:#fff;color:#080a0e;border-color:#fff}
+.profile{background:linear-gradient(145deg,#17202d,#0c1118);border:1px solid var(--line);padding:14px;border-radius:25px}.photo{aspect-ratio:1;border-radius:18px;background:#0b1118;display:flex;align-items:center;justify-content:center;text-align:center;color:#7e8a9b;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover}.pinfo{padding:17px 7px 5px}.pinfo b{font-size:20px}.pinfo p{font-size:13px;color:var(--muted)}
+section{padding:78px 0;border-top:1px solid #ffffff09}.kicker{color:var(--a);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;margin-bottom:9px}.title{font-size:clamp(32px,5vw,50px);line-height:1.05;letter-spacing:-.045em;margin-bottom:13px}.intro{color:var(--muted);max-width:750px;margin-bottom:32px}
+.grid2{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}.card{background:linear-gradient(145deg,var(--card),#0c1118);border:1px solid var(--line);border-radius:20px;padding:25px}.card h3{font-size:21px;margin-bottom:8px}.card p,.role p{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.stat{border:1px solid var(--line);border-radius:14px;padding:15px;background:#0c1118}.stat b{font-size:25px;display:block}.stat span{font-size:11px;color:var(--muted)}
+.roles{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.role{border:1px solid var(--line);border-radius:17px;padding:21px;background:#101722}.role h3{margin-bottom:6px}.timeline{display:grid;gap:0}.item{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:19px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.year{color:var(--a);font-weight:900;font-size:12px}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:20px}.upload{display:inline-block;padding:12px 16px;border:1px dashed #536276;border-radius:12px;font-weight:800;cursor:pointer}.upload input{display:none}.hint{font-size:12px;color:var(--muted)}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery .photo{aspect-ratio:4/3;border:1px solid var(--line);position:relative}.label{position:absolute;left:9px;bottom:9px;background:#000b;padding:4px 8px;border-radius:7px;font-size:11px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:15px}.contact a{color:var(--a);font-weight:800;word-break:break-word}footer{border-top:1px solid var(--line);padding:35px 0;color:#7e8999;font-size:13px}
+@media(max-width:800px){.heroGrid,.grid2,.contact{grid-template-columns:1fr}.links{display:none}.roles{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.gallery,.stats{grid-template-columns:1fr}h1{font-size:55px}.item{grid-template-columns:1fr;gap:3px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav"><a class="logo" href="#top">VAMSHI<span>NM</span></a><div class="links"><a href="#about">About</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#gallery">Photos</a><a href="#contact">Contact</a></div></div></nav>
+<main id="top">
+<section class="hero"><div class="wrap heroGrid"><div>
+<div class="badge"><span class="dot"></span>OFFICIAL PROFESSIONAL PORTFOLIO</div>
+<h1>Vamshi <span class="grad">NM.</span></h1>
+<p class="lead">Creator • Trainer • MBA Student • Public Speaker • Student Leader</p>
+<p class="lead" style="margin-top:12px">Building a personal brand through storytelling, communication, leadership and curiosity — with a focus on educational content, current affairs and meaningful ideas.</p>
+<div class="buttons"><a class="btn primary" href="#about">Explore My Story ↓</a><a class="btn" href="mailto:vamshiknows415@gmail.com">Email Me</a></div>
+</div>
+<div class="profile"><div class="photo" id="profilePhoto"><div><b>Add profile.jpg</b><br>Upload your profile photo to this GitHub repository and use the image line shown in the HTML comments.</div></div><div class="pinfo"><b>Vamshi NM</b><p>MBA Student • SJCIT College, Chikkaballapur</p></div></div>
+</div></section>
+
+<section id="about"><div class="wrap"><div class="kicker">01 — About</div><h2 class="title">A personal brand built around purpose.</h2><p class="intro">A professional snapshot of my academic journey, leadership experience, content work, training and public communication.</p>
+<div class="grid2"><div class="card"><h3>Who I am</h3><p>I’m Vamshi NM, an MBA student at SJCIT College, Chikkaballapur, Karnataka. I’m interested in communication, leadership, content creation, public speaking and practical learning.</p><div class="stats"><div class="stat"><b>8K+</b><span>Instagram community</span></div><div class="stat"><b>2.5M+</b><span>Recent views</span></div><div class="stat"><b>1M+</b><span>Peak reel reach</span></div></div></div>
+<div class="card"><h3>Leadership</h3><p>I serve as <b style="color:#fff">President of the MBA Student Council at SJCIT College, Chikkaballapur</b>, contributing to student activities, coordination, communication and leadership initiatives.</p><br><p>My approach: learn continuously, communicate clearly, create consistently and turn ideas into action.</p></div></div></div></section>
+
+<section id="work"><div class="wrap"><div class="kicker">02 — What I Do</div><h2 class="title">Work, skills & experience.</h2><p class="intro">Areas where I create, communicate, coordinate and contribute.</p>
+<div class="roles">
+<div class="role"><h3>🎥 Content Creation</h3><p>Educational and current-affairs storytelling in Kannada, including science, mysteries, technology and social topics.</p></div>
+<div class="role"><h3>🎤 Public Speaking</h3><p>Public speaking, declamation and communication-focused activities with a strong interest in storytelling.</p></div>
+<div class="role"><h3>🧑‍🏫 Training & Communication</h3><p>Content communication training, learning material development and communication-focused training activities.</p></div>
+<div class="role"><h3>👑 Student Leadership</h3><p>President of the MBA Student Council at SJCIT College, Chikkaballapur, supporting student coordination and events.</p></div>
+<div class="role"><h3>📚 MBA & Management</h3><p>Developing knowledge across management, marketing, communication, finance, statistics, strategy and entrepreneurship.</p></div>
+<div class="role"><h3>🎯 Event Coordination</h3><p>Experience coordinating student initiatives, college activities, events and professional outreach.</p></div>
+</div></div></section>
+
+<section id="journey"><div class="wrap"><div class="kicker">03 — Journey</div><h2 class="title">Milestones that shaped the journey.</h2><div class="card timeline">
+<div class="item"><div class="year">MBA</div><div><h3>Management & Leadership</h3><p>MBA journey at SJCIT College, Chikkaballapur with active involvement in student leadership and college initiatives.</p></div></div>
+<div class="item"><div class="year">STUDENT COUNCIL</div><div><h3>MBA Student Council President</h3><p>Taking responsibility for student coordination, communication and leadership activities.</p></div></div>
+<div class="item"><div class="year">CONTENT</div><div><h3>Rare Clicks / Kannada Content</h3><p>Building educational short-form content around current issues, science, mysteries, technology and interesting stories.</p></div></div>
+<div class="item"><div class="year">SPEAKING</div><div><h3>Public Speaking & Declamation</h3><p>District-level declamation achievement and state-level participation.</p></div></div>
+<div class="item"><div class="year">TRAINING</div><div><h3>Communication Training</h3><p>Experience in content communication training and preparation of learning material.</p></div></div>
+</div></div></section>
+
+<section id="gallery"><div class="wrap"><div class="kicker">04 — Photo Gallery</div><h2 class="title">Moments, work & memories.</h2><p class="intro">Preview photos instantly with the uploader. For permanent photos on the live website, upload the image files to the same GitHub repository.</p>
+<div class="tools"><label class="upload">＋ Upload photos to preview <input id="photoInput" type="file" accept="image/*" multiple></label><span class="hint">Local preview only — this static site cannot permanently save visitor uploads.</span></div>
+<div class="gallery" id="gallery"><div class="photo"><div>Add profile.jpg</div></div><div class="photo"><div>Add mba.jpg</div></div><div class="photo"><div>Add creator.jpg</div></div><div class="photo"><div>Add speaking.jpg</div></div><div class="photo"><div>Add event.jpg</div></div><div class="photo"><div>Add achievement.jpg</div></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="kicker">05 — Contact</div><h2 class="title">Let’s connect.</h2><p class="intro">For professional communication, training, collaborations, event opportunities and enquiries.</p>
+<div class="contact"><div class="card"><div class="kicker">Professional / Personal</div><h3>Email</h3><p style="color:var(--muted);margin:8px 0 12px">Reach me directly:</p><a href="mailto:vamshiknows415@gmail.com">vamshiknows415@gmail.com</a></div><div class="card"><div class="kicker">Agartha / Event</div><h3>Event Contact</h3><p style="color:var(--muted);margin:8px 0 12px">For Agartha-related communication:</p><a href="mailto:agartha2026sjcit@gmail.com">agartha2026sjcit@gmail.com</a></div></div>
+<div class="buttons"><a class="btn primary" href="mailto:vamshiknows415@gmail.com?subject=Professional%20Enquiry">Start a Conversation →</a></div></div></section>
+</main>
+<footer><div class="wrap">© 2026 Vamshi NM. All rights reserved. • Creator • Trainer • MBA Student • Public Speaker • Student Leader</div></footer>
+<script>
+document.getElementById('photoInput').addEventListener('change',function(e){
+ const g=document.getElementById('gallery');
+ [...e.target.files].forEach(file=>{
+  if(!file.type.startsWith('image/'))return;
+  const box=document.createElement('div');box.className='photo';
+  const img=document.createElement('img');img.src=URL.createObjectURL(file);img.alt=file.name;
+  const label=document.createElement('span');label.className='label';label.textContent=file.name;
+  box.append(img,label);g.prepend(box);
+ });
+});
+</script>
+<!-- PERMANENT PROFILE PHOTO:
+Replace the profile placeholder above with:
+<img src="profile.jpg" alt="Vamshi NM">
+Then upload profile.jpg to this repository.
+For more permanent gallery photos, use filenames such as mba.jpg, creator.jpg, speaking.jpg, event.jpg and achievement.jpg,
+upload them to the repository, and replace the corresponding gallery placeholders with <img src="filename.jpg" alt="...">.
+-->
+</body>
+</html>"""
+path=Path("/mnt/data/index.html")
+path.write_text(html,encoding="utf-8")
+print(path)
